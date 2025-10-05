@@ -4,6 +4,8 @@ const dotenv = require('dotenv');
 const fs = require('fs');
 const path = require('path');
 
+console.log("✅ VerifyPro backend starting...");
+
 dotenv.config();
 
 const app = express();
@@ -52,6 +54,8 @@ if (process.env.NODE_ENV !== "production") {
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 }
+
+console.log("✅ VerifyPro backend initialized successfully!");
 
 // ✅ Export app for Vercel
 module.exports = app;
