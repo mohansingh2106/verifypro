@@ -26,22 +26,21 @@ try {
   console.error("Error creating upload directory:", err);
 }
 
-// ✅ Root route for testing
+// ✅ Test route only (disable all others temporarily)
 app.get("/", (req, res) => {
-  res.send("✅ VerifyPro Backend is Live!");
+  res.send("✅ VerifyPro Backend is Live (No DB Connected Yet)");
 });
 
-// ✅ Routes
-const registerRoutes = require('./routes/register');
-const employeeRoutes = require('./routes/employee');
-const verificationRoutes = require('./routes/verification');
-const loginRoutes = require('./routes/login');
+// ❌ Temporarily disable routes
+// const registerRoutes = require('./routes/register');
+// const employeeRoutes = require('./routes/employee');
+// const verificationRoutes = require('./routes/verification');
+// const loginRoutes = require('./routes/login');
 
-// ✅ Mount routes
-app.use("/register", registerRoutes);
-app.use("/employees", employeeRoutes);
-app.use("/verify", verificationRoutes);
-app.use("/login", loginRoutes);
+// app.use("/register", registerRoutes);
+// app.use("/employees", employeeRoutes);
+// app.use("/verify", verificationRoutes);
+// app.use("/login", loginRoutes);
 
 // ✅ Serve uploads locally only
 if (process.env.NODE_ENV !== 'production') {
